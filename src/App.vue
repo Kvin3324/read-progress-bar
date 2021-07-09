@@ -1,6 +1,7 @@
 <template>
   <read-progress-bar
     :percent="progressBarPercent"
+    :color="color"
   >
   </read-progress-bar>
 </template>
@@ -14,7 +15,8 @@ export default {
 
   data() {
     return {
-      percent: 0
+      percent: 0,
+      color: 'red'
     }
   },
 

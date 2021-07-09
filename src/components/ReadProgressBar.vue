@@ -1,9 +1,6 @@
 <template>
   <section class="progress-bar">
-    <div class="progress-bar__background">
-      <div class="progress-bar__percent" :style="styleProgress">
-        <p :class="percent === 0 ? 'no-percent' : 'percent-number'"></p>
-      </div>
+    <div class="progress-bar__background" :style="styleProgress">
     </div>
   </section>
 </template>
@@ -17,12 +14,16 @@ export default {
       type: Number,
       default: 0
     },
+    color: {
+      type: String,
+      default: ''
+    }
   },
 
   computed: {
     styleProgress() {
       return {
-        background: 'red',
+        background: `${this.color}`,
         width: `${this.percent}%`
       }
     }
@@ -34,37 +35,17 @@ export default {
   .progress-bar {
     display: flex;
     flex-direction: row;
-    padding-top: 6px;
-    padding-bottom: 15px;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
 
     &__background {
       display: flex;
       justify-content: space-between;
       background-color: white;
-      box-shadow: 0px 3px 6px #00000029;
-      border-radius: 30px;
-      height: 20px;
+      height: 4px;
       width: inherit;
-    }
-
-    &__percent {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 30px;
-      height: 20px;
-
-      .percent-number {
-        color: white;
-      }
-
-      .no-percent {
-        color: black;
-        padding-left: 30px;
-      }
     }
   }
 </style>
